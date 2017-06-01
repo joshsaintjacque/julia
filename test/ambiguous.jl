@@ -279,6 +279,7 @@ end
         pop!(need_to_handle_undef_sparam, which(Base.SparseArrays._absspvec_vcat, (AbstractSparseArray{Tv, Ti, 1} where {Tv, Ti},)))
         pop!(need_to_handle_undef_sparam, which(Base.SparseArrays._absspvec_hcat, (AbstractSparseArray{Tv, Ti, 1} where {Tv, Ti},)))
         pop!(need_to_handle_undef_sparam, which(Base.cat, (Any, Base.SparseArrays._TypedDenseConcatGroup{T} where T)))
+        pop!(need_to_handle_undef_sparam, first(methods(Base.same_names)))
         @test need_to_handle_undef_sparam == Set()
     end
 end
